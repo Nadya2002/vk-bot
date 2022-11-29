@@ -4,7 +4,7 @@ if (!isset($_REQUEST)) {
 }
 
 //Строка для подтверждения адреса сервера из настроек Callback API
-$confirmation_token = 'f02c2170';
+$confirmation_token = 'dfce9f4e';
 
 //Ключ доступа сообщества
 $token = 'vk1.a.9j7qT1t6Q0Ck1sd74dyc38cboQacFV8WOIwlfC8PO-nzxcPZ6-8KArJ8P6A5Vfy5VVT_FzgVvr7ZQpovh2GvFdTMyDgtQ4W_XqI0Vdpg7LUdgw0WBg3fSSuBQq8SA5w22MNRMFZEt9YwsHelV0NLa_6RujYLHZeImP9fP8sPJZrrcZUy_MvPjoFRTEmWLuKi-xZbsW9AvROhiiOyEzLM2w';
