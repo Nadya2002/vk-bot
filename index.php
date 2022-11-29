@@ -27,6 +27,7 @@ function callback_handleEvent() {
 
             //Получение нового сообщения
             case CALLBACK_API_EVENT_MESSAGE_NEW:
+                log_msg("new message");
                 _callback_handleMessageNew($event['object']);
                 break;
 
