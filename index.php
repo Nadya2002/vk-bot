@@ -13,6 +13,8 @@ if (!isset($_REQUEST)) {
     return;
 }
 
+log_msg("start!!!");
+
 callback_handleEvent();
 
 function callback_handleEvent() {

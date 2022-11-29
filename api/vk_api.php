@@ -8,8 +8,7 @@ define('VK_API_ACCESS_TOKEN', 'vk1.a.9j7qT1t6Q0Ck1sd74dyc38cboQacFV8WOIwlfC8PO-n
 function vkApi_messagesSend($peer_id, $message, $attachments = array()) {
     return _vkApi_call('messages.send', array(
         'peer_id'    => $peer_id,
-        'message'    => $message,
-        'attachment' => implode(',', $attachments)
+        'message'    => $message
     ));
 }
 
