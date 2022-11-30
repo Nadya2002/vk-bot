@@ -33,7 +33,6 @@ function callback_handleEvent()
             case CALLBACK_API_EVENT_MESSAGE_NEW:
                 _callback_handleMessageNew($event->object);
                 break;
-
             default:
                 _callback_response('Unsupported event');
                 break;
@@ -57,8 +56,9 @@ function _callback_handleConfirmation()
 
 function _callback_handleMessageNew($data)
 {
+    $message = $data->text;
     $user_id = $data->message->from_id;
-    bot_sendMessage($user_id);
+    bot_sendMessage($user_id, $message);
     _callback_okResponse();
 }
 

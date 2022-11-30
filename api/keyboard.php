@@ -1,13 +1,43 @@
 <?php
-function create_keyboard(){
+function create_keyboard()
+{
     $keyboard = [
         "one_time" => false,
         "buttons" => [[
             ["action" => [
                 "type" => "text",
                 "payload" => '{"button": "1"}',
-                "label" => "Выбери группу"],
+                "label" => "Выбрать группу"],
                 "color" => "default"],
+        ]]];
+    return $keyboard;
+}
+
+function keyboard_choose_group()
+{
+    $keyboard = [
+        "one_time" => false,
+        "buttons" => [[
+            ["action" => [
+                "type" => "text",
+                "payload" => '{"button": "34"}',
+                "label" => "34"],
+                "color" => "default"],
+            ["action" => [
+                "type" => "text",
+                "payload" => '{"button": "35"}',
+                "label" => "35"],
+                "color" => "default"],
+            ["action" => [
+                "type" => "text",
+                "payload" => '{"button": "36"}',
+                "label" => "36"],
+                "color" => "default"],
+            ["action" => [
+                "type" => "text",
+                "payload" => '{"button": "37"}',
+                "label" => "37"],
+                "color" => "default"]
         ]]];
     return $keyboard;
 }
