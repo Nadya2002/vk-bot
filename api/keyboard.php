@@ -134,7 +134,7 @@ function keyboard_choose_subject()
                 "payload" => '{"button": "en"}',
                 "label" => "Английский язык"],
                 "color" => "default"]],
-           [["action" => [
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "fp"}',
                 "label" => "Функциональное программирование"],
