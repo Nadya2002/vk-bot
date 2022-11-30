@@ -62,43 +62,44 @@ function keyboard_choose_day()
 {
     $keyboard = [
         "one_time" => false,
-        "buttons" => [[
-            ["action" => [
+        "buttons" => [
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "mon"}',
                 "label" => "Понедельник"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "tue"}',
                 "label" => "Вторник"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "wed"}',
                 "label" => "Среда"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "thu"}',
                 "label" => "Четверг"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "fri"}',
                 "label" => "Пятница"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "sat"}',
                 "label" => "Суббота"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "sun"}',
                 "label" => "Воскресенье"],
-                "color" => "default"]
-        ]]];
+                "color" => "default"]]
+        ]
+    ];
     return $keyboard;
 }
 
@@ -107,37 +108,38 @@ function keyboard_choose_subject()
 {
     $keyboard = [
         "one_time" => false,
-        "buttons" => [[
-            ["action" => [
+        "buttons" => [
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "ms"}',
                 "label" => "Математическая статистика"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "mpp"}',
                 "label" => "Параллельное программирование"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "da"}',
                 "label" => "Анализ данных"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "mt"}',
                 "label" => "Методы трансляции"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "en"}',
                 "label" => "Английский язык"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+           [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "fp"}',
                 "label" => "Функциональное программирование"],
-                "color" => "default"]
-        ]]];
+                "color" => "default"]]
+        ]
+    ];
     return $keyboard;
 }
