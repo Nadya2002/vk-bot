@@ -1,4 +1,5 @@
 <?php
+global $group_number;
 
 function bot_sendMessage($user_id, $text, $payload)
 {
@@ -9,9 +10,23 @@ function bot_sendMessage($user_id, $text, $payload)
     } else {
         $keyboard = create_keyboard();
     }
-//    switch ($payload){
-//        case
-//    }
-    $msg = "Привет, {$user->first_name}!" . $text . " hello " . $payload . " abcd";
+    switch ($payload){
+        case '34':
+            $GLOBALS['group_number'] = 34;
+            break;
+        case '35':
+            $GLOBALS['group_number'] = 35;
+            break;
+        case '36':
+            $GLOBALS['group_number'] = 36;
+            break;
+        case '37':
+            $GLOBALS['group_number'] = 37;
+            break;
+        default :
+            $GLOBALS['group_number'] = 0;
+            break;
+    }
+    $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
     vkApi_messagesSend($user_id, $msg, $keyboard);
 }
