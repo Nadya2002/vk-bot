@@ -1,6 +1,5 @@
 <?php
 global $group_number;
-$GLOBALS['group_number'] = 0;
 
 function bot_sendMessage($user_id, $text, $payload)
 {
