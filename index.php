@@ -58,8 +58,8 @@ function _callback_handleMessageNew($data)
 {
     $message = $data->message->text;
     $user_id = $data->message->from_id;
-    if (isset($data->payload)) {  //получаем payload
-        $payload = json_decode($data->payload, True);
+    if (isset($data->message->payload)) {  //получаем payload
+        $payload = json_decode($data->message->payload, True);
         $payload = 1;
     } else {
         $payload = null;
