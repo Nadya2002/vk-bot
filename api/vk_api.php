@@ -1,20 +1,23 @@
 <?php
 
-function vkApi_messagesSend($peer_id, $message, $attachments = array()) {
+function vkApi_messagesSend($peer_id, $message, $keyboard, $attachments = array())
+{
     $request_params = array(
         'message' => $message,
         'peer_id' => $peer_id,
         'access_token' => VK_API_ACCESS_TOKEN,
+        'keyboard' => json_encode($keyboard, JSON_UNESCAPED_UNICODE),
         'v' => '5.103',
         'random_id' => '0'
     );
 
     $get_params = http_build_query($request_params);
 
-    file_get_contents('https://api.vk.com/method/messages.send?'. $get_params);
+    file_get_contents('https://api.vk.com/method/messages.send?' . $get_params);
 }
 
-function vkApi_usersGet($user_id) {
+function vkApi_usersGet($user_id)
+{
     $token = VK_API_ACCESS_TOKEN;
 
     $user_info = json_decode(file_get_contents("https://api.vk.com/method/users.get?user_ids={$user_id}&access_token={$token}&v=5.103"));
@@ -22,13 +25,14 @@ function vkApi_usersGet($user_id) {
     return $user_info;
 }
 
-function _vkApi_call($method, $params = array()) {
+function _vkApi_call($method, $params = array())
+{
     $params['access_token'] = VK_API_ACCESS_TOKEN;
     $params['v'] = VK_API_VERSION;
     $params['random_id'] = '0';
 
     $query = http_build_query($params);
-    $url = VK_API_ENDPOINT.$method.'?'.$query;
+    $url = VK_API_ENDPOINT . $method . '?' . $query;
 
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

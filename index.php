@@ -8,6 +8,7 @@ require_once 'util/global.php';
 
 require_once 'api/vk_api.php';
 require_once 'api/bot.php';
+require_once 'api/keyboard.php';
 
 if (!isset($_REQUEST)) {
     return;

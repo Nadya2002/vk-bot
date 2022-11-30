@@ -1,9 +1,9 @@
 <?php
-class Subject{
+class Lesson{
     // Connection
     private $conn;
     // Table
-    private $db_table = "Subject";
+    private $db_table = "Lesson";
     // Columns
     public $id;
     public $name;
@@ -17,14 +17,14 @@ class Subject{
         $this->conn = $db;
     }
     // GET ALL
-    public function getSubjects(){
+    public function getLessons(){
         $sqlQuery = "SELECT * FROM " . $this->db_table . "";
         $stmt = $this->conn->prepare($sqlQuery);
         $stmt->execute();
         return $stmt;
     }
     // CREATE
-    public function createSubject(){
+    public function createLesson(){
         $sqlQuery = "INSERT INTO
                         ". $this->db_table ."
                     SET
@@ -59,7 +59,7 @@ class Subject{
         return false;
     }
     // READ single
-    public function getSingleSubject(){
+    public function getSingleLesson(){
         $sqlQuery = "SELECT
                         id, 
                         name, 
@@ -86,7 +86,7 @@ class Subject{
         $this->course = $dataRow['course'];
     }
     // UPDATE
-    public function updateSubject(){
+    public function updateLesson(){
         $sqlQuery = "UPDATE
                         ". $this->db_table ."
                     SET
@@ -122,7 +122,7 @@ class Subject{
         return false;
     }
     // DELETE
-    function deleteSubject(){
+    function deleteLesson(){
         $sqlQuery = "DELETE FROM " . $this->db_table . " WHERE id = ?";
         $stmt = $this->conn->prepare($sqlQuery);
 
