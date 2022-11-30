@@ -1,5 +1,6 @@
 <?php
 global $group_number;
+$GLOBALS['group_number'] = 0;
 
 function bot_sendMessage($user_id, $text, $payload)
 {
@@ -24,7 +25,6 @@ function bot_sendMessage($user_id, $text, $payload)
             $GLOBALS['group_number'] = 37;
             break;
         default :
-            $GLOBALS['group_number'] = 0;
             break;
     }
     $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
