@@ -1,17 +1,27 @@
 <?php
+
 $group_number = 0;
 
 function bot_sendMessage($user_id, $text, $payload)
 {
     $users_get_response = vkApi_usersGet($user_id);
     $user = $users_get_response->response[0];
-    if ($text == "Выбрать группу") {
-        $keyboard = keyboard_choose_group();
-    } else {
-        $keyboard = create_keyboard();
+    switch ($text) {
+        case "Выбрать группу":
+            $keyboard = keyboard_choose_group();
+            break;
+        case "Выбрать день":
+            $keyboard = keyboard_choose_day();
+            break;
+        case "Выбрать предмет":
+            $keyboard = keyboard_choose_subject();
+            break;
+        default:
+            $keyboard = create_keyboard();
+            break;
     }
 
-    switch ($payload){
+    switch ($payload) {
         case '34':
             $GLOBALS['group_number'] = 34;
             break;
