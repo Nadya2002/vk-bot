@@ -1,6 +1,6 @@
 <?php
 
-function bot_sendMessage($user_id, $text)
+function bot_sendMessage($user_id, $text, $payload)
 {
     $users_get_response = vkApi_usersGet($user_id);
     $user = $users_get_response->response[0];
@@ -9,6 +9,9 @@ function bot_sendMessage($user_id, $text)
     } else {
         $keyboard = create_keyboard();
     }
-    $msg = "Привет, {$user->first_name}!" . $text . "hello";
+//    switch ($payload){
+//        case
+//    }
+    $msg = "Привет, {$user->first_name}!" . $text . " hello " . $payload . " abcd";
     vkApi_messagesSend($user_id, $msg, $keyboard);
 }
