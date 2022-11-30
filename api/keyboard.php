@@ -3,28 +3,29 @@ function create_keyboard()
 {
     $keyboard = [
         "one_time" => false,
-        "buttons" => [[
-            ["action" => [
+        "buttons" => [
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "group"}',
                 "label" => "Выбрать группу"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "week"}',
                 "label" => "Показать расписание на неделю"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "day"}',
                 "label" => "Выбрать день"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "subject"}',
                 "label" => "Выбрать предмет"],
-                "color" => "default"]
-        ]]];
+                "color" => "default"]]
+        ]
+    ];
     return $keyboard;
 }
 
