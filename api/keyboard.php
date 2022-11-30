@@ -8,7 +8,7 @@ function create_keyboard()
                 "type" => "text",
                 "payload" => '{"button": "1"}',
                 "label" => "Выбрать группу"],
-                "color" => "default"],
+                "color" => "primary"],
         ]]];
     return $keyboard;
 }
@@ -22,22 +22,22 @@ function keyboard_choose_group()
                 "type" => "text",
                 "payload" => '{"button": "34"}',
                 "label" => "34"],
-                "color" => "default"],
+                "color" => "#77D496"],  //green
             ["action" => [
                 "type" => "text",
                 "payload" => '{"button": "35"}',
                 "label" => "35"],
-                "color" => "default"],
+                "color" => "#5748A8"],  //purple
             ["action" => [
                 "type" => "text",
                 "payload" => '{"button": "36"}',
                 "label" => "36"],
-                "color" => "default"],
+                "color" => "#5748A8"],  //dark blue
             ["action" => [
                 "type" => "text",
                 "payload" => '{"button": "37"}',
                 "label" => "37"],
-                "color" => "default"]
+                "color" => "#2Af7ED"]   //blue
         ]]];
     return $keyboard;
 }
