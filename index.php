@@ -60,10 +60,13 @@ function _callback_handleMessageNew($data)
     $user_id = $data->message->from_id;
     if (isset($data->payload)) {  //получаем payload
         $payload = json_decode($data->payload, True);
+        $payload = 1;
     } else {
         $payload = null;
+        $payload = 2;
     }
-    $payload = $payload['button'];
+//    $payload = $payload['button'];
+
 
     bot_sendMessage($user_id, $message, $payload);
     _callback_okResponse();
