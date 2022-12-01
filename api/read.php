@@ -7,9 +7,11 @@ include_once '../class/lesson.php';
 
 function get_lessons_by_group_and_day($group_n, $day_n)
 {
-
     $database = new Database();
     $db = $database->getConnection();
+    if(!isset($db)){
+        return "not connect to db";
+    }
     $items = new Lesson($db);
     $stmt = $items->getLessonsByGroupAndDay($group_n, $day_n);
     $itemCount = $stmt->rowCount();
