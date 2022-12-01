@@ -2,9 +2,6 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-include_once '../config/database.php';
-include_once '../class/lesson.php';
-
 function get_lessons_by_group_and_day($group_n, $day_n)
 {
     log_msg("in get les");

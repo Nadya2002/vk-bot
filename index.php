@@ -11,6 +11,10 @@ require_once 'api/bot.php';
 require_once 'api/keyboard.php';
 require_once 'api/read.php';
 
+require_once 'class/lesson.php';
+
+require_once 'config/database.php';
+
 if (!isset($_REQUEST)) {
     return;
 }
