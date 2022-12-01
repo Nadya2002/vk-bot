@@ -33,8 +33,8 @@ function read($itemCount, $stmt, $error)
                 "time" => $time,
                 "name" => translate($name),
                 "type" => translate($type),
-                "group" => $group,
-                "course" => $course
+                "course" => $course,
+                "group" => $group
             );
             array_push($lessonArr["body"], $e);
         }
@@ -59,8 +59,9 @@ function changeStructure($array)
     return $result;
 }
 
-function translate($string){
-    switch ($string){
+function translate($string)
+{
+    switch ($string) {
         case "lecture":
             return "лекция";
         case "practice":
