@@ -7,7 +7,9 @@ include_once '../class/lesson.php';
 
 function get_lessons_by_group_and_day($group_n, $day_n)
 {
+    log_msg("in get les");
     $database = new Database();
+    log_msg("has empty database");
     $db = $database->getConnection();
     if(!isset($db)){
         return "not connect to db";

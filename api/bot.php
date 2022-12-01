@@ -67,6 +67,7 @@ function bot_sendMessage($user_id, $text, $payload)
     }
 
     if(isset($day)){
+        log_msg("have day");
         $msg_day = get_lessons_by_group_and_day($payload_group, $day);
     } else {
         $msg_day = "не получилось";
