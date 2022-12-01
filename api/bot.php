@@ -67,10 +67,12 @@ function bot_sendMessage($user_id, $text, $payload)
     }
 
     if(isset($day)){
-        $msg = get_lessons_by_group_and_day($payload_group, $day);
+        $msg_day = get_lessons_by_group_and_day($payload_group, $day);
     } else {
-        $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
+        $msg_day = "не получилось";
+//        $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
     }
 
+    $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd " . $msg_day . " aaaaaaa";
     vkApi_messagesSend($user_id, $msg, $keyboard);
 }
