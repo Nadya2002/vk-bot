@@ -53,7 +53,7 @@ function changeStructure($array)
 
     foreach ($array as $elem) {
         $temp = implode(' - ', $elem);
-        $result = $result . $temp . '\n';
+        $result = $result . $temp . "\n";
     }
 
     return $result;
