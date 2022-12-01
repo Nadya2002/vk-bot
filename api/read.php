@@ -28,7 +28,7 @@ function read($itemCount, $stmt, $error)
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
             $e = array(
-                "id" => $id,
+//                "id" => $id,
                 "name" => $name,
                 "day" => $day,
                 "time" => $time,
@@ -38,8 +38,18 @@ function read($itemCount, $stmt, $error)
             );
             array_push($lessonArr["body"], $e);
         }
-        return json_encode($lessonArr);
+        $translateArr = translate($lessonArr["body"]);
+//        return json_encode($lessonArr);
+        return $translateArr;
     } else {
         return $error;
     }
+}
+
+function translate($array)
+{
+
+    $result = implode(' ', $array);
+
+    return $result;
 }
