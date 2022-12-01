@@ -2,8 +2,8 @@
 class Database {
     private $host = "127.0.0.1";
     private $database_name = "mydb";
-    private $username = "root";
-    private $password = "ubuntu";
+    private $username = "php_user";
+    private $password = "admin";
     public $conn;
     public function getConnection(){
         log_msg("in get conn");
