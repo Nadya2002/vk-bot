@@ -11,7 +11,7 @@ function create_keyboard($group)
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "week"}',
+                "payload" => '{"button": "week", "group": "' . $group . '"}',
                 "label" => "Показать расписание на неделю"],
                 "color" => "default"]],
             [["action" => [
@@ -21,7 +21,7 @@ function create_keyboard($group)
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "subject"}',
+                "payload" => '{"button": "subject", "group": "' . $group . '"}',
                 "label" => "Выбрать предмет"],
                 "color" => "default"]]
         ]
@@ -70,32 +70,32 @@ function keyboard_choose_day($group)
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "tue"}',
+                "payload" => '{"button": "tue", "group": "' . $group . '"}',
                 "label" => "Вторник"],
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "wed"}',
+                "payload" => '{"button": "wed", "group": "' . $group . '"}',
                 "label" => "Среда"],
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "thu"}',
+                "payload" => '{"button": "thu", "group": "' . $group . '"}',
                 "label" => "Четверг"],
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "fri"}',
+                "payload" => '{"button": "fri", "group": "' . $group . '"}',
                 "label" => "Пятница"],
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "sat"}',
+                "payload" => '{"button": "sat", "group": "' . $group . '"}',
                 "label" => "Суббота"],
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "sun"}',
+                "payload" => '{"button": "sun", "group": "' . $group . '"}',
                 "label" => "Воскресенье"],
                 "color" => "default"]]
         ]
@@ -104,39 +104,39 @@ function keyboard_choose_day($group)
 }
 
 
-function keyboard_choose_subject()
+function keyboard_choose_subject($group)
 {
     $keyboard = [
         "one_time" => false,
         "buttons" => [
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "ms"}',
+                "payload" => '{"button": "ms", "group": "' . $group . '"}',
                 "label" => "Математическая статистика"],
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "mpp"}',
+                "payload" => '{"button": "mpp", "group": "' . $group . '"}',
                 "label" => "Параллельное программирование"],
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "da"}',
+                "payload" => '{"button": "da", "group": "' . $group . '"}',
                 "label" => "Анализ данных"],
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "mt"}',
+                "payload" => '{"button": "mt", "group": "' . $group . '"}',
                 "label" => "Методы трансляции"],
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "en"}',
+                "payload" => '{"button": "en", "group": "' . $group . '"}',
                 "label" => "Английский язык"],
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "fp"}',
+                "payload" => '{"button": "fp", "group": "' . $group . '"}',
                 "label" => "Функциональное программирование"],
                 "color" => "default"]]
         ]

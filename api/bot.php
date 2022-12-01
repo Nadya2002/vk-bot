@@ -24,6 +24,28 @@ function bot_sendMessage($user_id, $text, $payload)
         case '37':
             $GLOBALS['group_number'] = 37;
             break;
+        //choose day
+        case 'mon':
+            $day = 'Monday';
+            break;
+        case 'tue':
+            $day = 'Tuesday';
+            break;
+        case 'wed':
+            $day = 'Wednesday';
+            break;
+        case 'thu':
+            $day = 'Thursday';
+            break;
+        case 'fri':
+            $day = 'Friday';
+            break;
+        case 'sat':
+            $day = 'Saturday';
+            break;
+        case 'sun':
+            $day = 'Sunday';
+            break;
         default :
             $GLOBALS['group_number'] = $payload_group;
             break;
@@ -37,16 +59,18 @@ function bot_sendMessage($user_id, $text, $payload)
             $keyboard = keyboard_choose_day($GLOBALS['group_number']);
             break;
         case "Выбрать предмет":
-            $keyboard = keyboard_choose_subject();
+            $keyboard = keyboard_choose_subject($GLOBALS['group_number']);
             break;
         default:
             $keyboard = create_keyboard($GLOBALS['group_number']);
             break;
     }
 
-
-
-    $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
+    if(isset($day)){
+        $msg = get_lessons_by_group_and_day($payload_group, $day);
+    } else {
+        $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
+    }
 
     vkApi_messagesSend($user_id, $msg, $keyboard);
 }
