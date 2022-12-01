@@ -29,16 +29,17 @@ function read($itemCount, $stmt, $error)
             extract($row);
             $e = array(
 //                "id" => $id,
-                "name" => $name,
-                "day" => $day,
+                "day" => translate($day),
                 "time" => $time,
-                "type" => $type,
+                "name" => translate($name),
+                "type" => translate($type),
                 "group" => $group,
                 "course" => $course
             );
             array_push($lessonArr["body"], $e);
         }
-        $translateArr = translate($lessonArr["body"]);
+
+        $translateArr = changeStructure($lessonArr["body"]);
 //        return json_encode($lessonArr);
         return $translateArr;
     } else {
@@ -46,14 +47,39 @@ function read($itemCount, $stmt, $error)
     }
 }
 
-function translate($array)
+function changeStructure($array)
 {
     $result = "";
 
     foreach ($array as $elem) {
-        $temp = implode(' ', $elem);
+        $temp = implode(' - ', $elem);
         $result = $result . $temp;
     }
 
     return $result;
+}
+
+function translate($string){
+    switch ($string){
+        case "lecture":
+            return "лекция";
+        case "practice":
+            return "практика";
+        case "Monday":
+            return "Понедельник";
+        case "Tuesday":
+            return "Вторник";
+        case "Wednesday":
+            return "Среда";
+        case "Thursday":
+            return "Четверг";
+        case "Friday":
+            return "Пятница";
+        case "Saturday":
+            return "Суббота";
+        case "Sunday":
+            return "Воскресенье";
+        default:
+            return $string;
+    }
 }
