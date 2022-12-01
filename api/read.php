@@ -48,8 +48,12 @@ function read($itemCount, $stmt, $error)
 
 function translate($array)
 {
+    $result = "";
 
-    $result = implode(' ', $array);
+    foreach ($array as $elem) {
+        $temp = implode(' ', $elem);
+        $result = $result . $temp;
+    }
 
     return $result;
 }
