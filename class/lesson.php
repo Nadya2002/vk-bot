@@ -23,6 +23,31 @@ class Lesson{
         $stmt->execute();
         return $stmt;
     }
+
+    public function getLessonsByGroupAndDay($group, $day){
+        $sqlQuery = "SELECT * FROM " . $this->db_table . " WHERE `group` = :group_num AND `day` = :day";
+        $stmt = $this->conn->prepare($sqlQuery);
+        $stmt->execute(['group_num' => $group, 'day' => $day]);
+
+        return $stmt;
+    }
+
+    public function getLessonsByGroupAndSubject($group, $subject){
+        $sqlQuery = "SELECT * FROM " . $this->db_table . " WHERE `group` = :group_num AND `name` = :subject";
+        $stmt = $this->conn->prepare($sqlQuery);
+        $stmt->execute(['group_num' => $group, 'subject' => $subject]);
+
+        return $stmt;
+    }
+
+    public function getLessonsByGroupForWeek($group){
+        $sqlQuery = "SELECT * FROM " . $this->db_table . " WHERE `group` = :group_num";
+        $stmt = $this->conn->prepare($sqlQuery);
+        $stmt->execute(['group_num' => $group]);
+
+        return $stmt;
+    }
+
     // CREATE
     public function createLesson(){
         $sqlQuery = "INSERT INTO
@@ -59,7 +84,7 @@ class Lesson{
         return false;
     }
     // READ single
-    public function getSingleLesson(){
+    public function getSingleLessonById(){
         $sqlQuery = "SELECT
                         id, 
                         name, 

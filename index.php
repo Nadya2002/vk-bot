@@ -63,7 +63,6 @@ function _callback_handleMessageNew($data)
     } else {
         $payload = null;
     }
-    $payload = $payload['button'];
 
     bot_sendMessage($user_id, $message, $payload);
     _callback_okResponse();

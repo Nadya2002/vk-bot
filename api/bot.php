@@ -6,22 +6,12 @@ function bot_sendMessage($user_id, $text, $payload)
 {
     $users_get_response = vkApi_usersGet($user_id);
     $user = $users_get_response->response[0];
-    switch ($text) {
-        case "Выбрать группу":
-            $keyboard = keyboard_choose_group();
-            break;
-        case "Выбрать день":
-            $keyboard = keyboard_choose_day();
-            break;
-        case "Выбрать предмет":
-            $keyboard = keyboard_choose_subject();
-            break;
-        default:
-            $keyboard = create_keyboard();
-            break;
-    }
 
-    switch ($payload) {
+    $payload_btn = $payload['button'];
+    $payload_group = $payload['group'];
+
+    switch ($payload_btn) {
+        // chose group
         case '34':
             $GLOBALS['group_number'] = 34;
             break;
@@ -35,8 +25,26 @@ function bot_sendMessage($user_id, $text, $payload)
             $GLOBALS['group_number'] = 37;
             break;
         default :
+            $GLOBALS['group_number'] = $payload_group;
             break;
     }
+
+    switch ($text) {
+        case "Выбрать группу":
+            $keyboard = keyboard_choose_group();
+            break;
+        case "Выбрать день":
+            $keyboard = keyboard_choose_day($GLOBALS['group_number']);
+            break;
+        case "Выбрать предмет":
+            $keyboard = keyboard_choose_subject();
+            break;
+        default:
+            $keyboard = create_keyboard();
+            break;
+    }
+
+
 
     $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
 

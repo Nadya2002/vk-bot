@@ -58,14 +58,14 @@ function keyboard_choose_group()
     return $keyboard;
 }
 
-function keyboard_choose_day()
+function keyboard_choose_day($group)
 {
     $keyboard = [
         "one_time" => false,
         "buttons" => [
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "mon"}',
+                "payload" => '{"button": "mon", "group": "' . $group . '"}',
                 "label" => "Понедельник"],
                 "color" => "default"]],
             [["action" => [
