@@ -11,12 +11,14 @@ function get_lessons_by_group_and_day($group_n, $day_n)
     $db = $database->getConnection();
     if(!isset($db)){
         return "not connect to db";
+    } else {
+        return "connect";
     }
-    $items = new Lesson($db);
-    $stmt = $items->getLessonsByGroupAndDay($group_n, $day_n);
-    $itemCount = $stmt->rowCount();
-
-    return read($itemCount, $stmt, "Нет пар сегодня");
+//    $items = new Lesson($db);
+//    $stmt = $items->getLessonsByGroupAndDay($group_n, $day_n);
+//    $itemCount = $stmt->rowCount();
+//
+//    return read($itemCount, $stmt, "Нет пар сегодня");
 }
 
 function read($itemCount, $stmt, $error)
