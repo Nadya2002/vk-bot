@@ -40,7 +40,7 @@ function bot_sendMessage($user_id, $text, $payload)
             $keyboard = keyboard_choose_subject();
             break;
         default:
-            $keyboard = create_keyboard();
+            $keyboard = create_keyboard($GLOBALS['group_number']);
             break;
     }
 

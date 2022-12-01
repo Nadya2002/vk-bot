@@ -1,5 +1,5 @@
 <?php
-function create_keyboard()
+function create_keyboard($group)
 {
     $keyboard = [
         "one_time" => false,
@@ -16,7 +16,7 @@ function create_keyboard()
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "day"}',
+                "payload" => '{"button": "day", "group": "' . $group . '"}',
                 "label" => "Выбрать день"],
                 "color" => "default"]],
             [["action" => [
