@@ -8,16 +8,15 @@ function get_lessons_by_group_and_day($group_n, $day_n)
     $database = new Database();
     log_msg("has empty database");
     $db = $database->getConnection();
-    if(!isset($db)){
+    if (!isset($db)) {
         return "not connect to db";
     } else {
-        return "connect";
+        $items = new Lesson($db);
+        $stmt = $items->getLessonsByGroupAndDay($group_n, $day_n);
+        $itemCount = $stmt->rowCount();
+
+        return read($itemCount, $stmt, "Нет пар сегодня");
     }
-//    $items = new Lesson($db);
-//    $stmt = $items->getLessonsByGroupAndDay($group_n, $day_n);
-//    $itemCount = $stmt->rowCount();
-//
-//    return read($itemCount, $stmt, "Нет пар сегодня");
 }
 
 function read($itemCount, $stmt, $error)
