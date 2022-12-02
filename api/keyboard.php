@@ -169,12 +169,12 @@ function keyboard_choose_subject($group)
                 "type" => "text",
                 "payload" => '{"button": "tt", "group": "' . $group . '"}',
                 "label" => "Теория типов"],
-                "color" => "default"]],
-            [["action" => [
-                "type" => "text",
-                "payload" => '{"button": "tn", "group": "' . $group . '"}',
-                "label" => "Теория чисел"],
                 "color" => "default"]]
+//            [["action" => [
+//                "type" => "text",
+//                "payload" => '{"button": "tn", "group": "' . $group . '"}',
+//                "label" => "Теория чисел"],
+//                "color" => "default"]]
         ]
     ];
     return $keyboard;
