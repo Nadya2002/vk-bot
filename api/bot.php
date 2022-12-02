@@ -46,6 +46,39 @@ function bot_sendMessage($user_id, $text, $payload)
         case 'sun':
             $day = 'Sunday';
             break;
+        case 'ms':
+            $subject = 'math statistics';
+            break;
+        case 'mpp':
+            $subject = 'parallel programming"';
+            break;
+        case 'da':
+            $subject = 'data analysis';
+            break;
+        case 'mt':
+            $subject = 'translation methods';
+            break;
+        case 'en':
+            $subject = 'english';
+            break;
+        case 'fp':
+            $subject = 'functional programming';
+            break;
+        case 'php':
+            $subject = 'web development - VK';
+            break;
+        case 'adv-alg':
+            $subject = 'adv algorithm';
+            break;
+        case 'front':
+            $subject = 'frontend';
+            break;
+        case 'tt':
+            $subject = 'type theory';
+            break;
+        case 'tn':
+            $subject = 'number theory';
+            break;
         default :
             $GLOBALS['group_number'] = $payload_group;
             break;
@@ -68,9 +101,12 @@ function bot_sendMessage($user_id, $text, $payload)
             break;
     }
 
-    if(isset($day)){
+    if (isset($day)) {
         log_msg("have day");
-        $msg = get_lessons_by_group_and_day($payload_group, $day) . "\n" . $payload_group . $GLOBALS['group_number'];
+        $msg = get_lessons_by_group_and_day($payload_group, $day);
+    } else if (isset($subject)) {
+        log_msg("have subject");
+        $msg = get_lessons_by_group_and_subject($payload_group, $subject);
     } else {
 //        $msg_day = "не получилось";
         $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
