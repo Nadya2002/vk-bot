@@ -164,12 +164,12 @@ function keyboard_choose_subject($group)
                 "type" => "text",
                 "payload" => '{"button": "front", "group": "' . $group . '"}',
                 "label" => "Фронтенд"],
+                "color" => "default"]],
+            [["action" => [
+                "type" => "text",
+                "payload" => '{"button": "tt", "group": "' . $group . '"}',
+                "label" => "Теория типов"],
                 "color" => "default"]]
-//            [["action" => [
-//                "type" => "text",
-//                "payload" => '{"button": "tt", "group": "' . $group . '"}',
-//                "label" => "Теория типов"],
-//                "color" => "default"]],
 //            [["action" => [
 //                "type" => "text",
 //                "payload" => '{"button": "tn", "group": "' . $group . '"}',
