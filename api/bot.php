@@ -24,6 +24,12 @@ function bot_sendMessage($user_id, $text, $payload)
         case '37':
             $GLOBALS['group_number'] = 37;
             break;
+        case '38':
+            $GLOBALS['group_number'] = 38;
+            break;
+        case '39':
+            $GLOBALS['group_number'] = 39;
+            break;
         //choose day
         case 'mon':
             $day = 'Monday';
