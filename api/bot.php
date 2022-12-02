@@ -56,13 +56,13 @@ function bot_sendMessage($user_id, $text, $payload)
             $keyboard = keyboard_choose_group();
             break;
         case "Выбрать день":
-            $keyboard = keyboard_choose_day($GLOBALS['group_number']);
+            $keyboard = keyboard_choose_day($payload_group);
             break;
         case "Выбрать предмет":
-            $keyboard = keyboard_choose_subject($GLOBALS['group_number']);
+            $keyboard = keyboard_choose_subject($payload_group);
             break;
         default:
-            $keyboard = create_keyboard($GLOBALS['group_number']);
+            $keyboard = create_keyboard($payload_group);
             break;
     }
 
