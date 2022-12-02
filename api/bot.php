@@ -68,7 +68,7 @@ function bot_sendMessage($user_id, $text, $payload)
 
     if(isset($day)){
         log_msg("have day");
-        $msg = get_lessons_by_group_and_day($payload_group, $day);
+        $msg = get_lessons_by_group_and_day($payload_group, $day) . "\n" . $payload_group . $GLOBALS['group_number'];
     } else {
 //        $msg_day = "не получилось";
         $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
