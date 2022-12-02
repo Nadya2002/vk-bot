@@ -15,7 +15,7 @@ function get_lessons_by_group_and_day($group_n, $day_n)
         $stmt = $items->getLessonsByGroupAndDay($group_n, $day_n);
         $itemCount = $stmt->rowCount();
 
-        return read($itemCount, $stmt, "Нет пар сегодня");
+        return read($itemCount, $stmt, "Нет пар. Отдыхай!");
     }
 }
 
@@ -80,6 +80,28 @@ function translate($string)
             return "Суббота";
         case "Sunday":
             return "Воскресенье";
+        case "math statistics":
+            return "Математическая статистика";
+        case "parallel programming":
+            return "Параллельное программирование";
+        case "translation methods":
+            return "Методы трансляции";
+        case "web development - VK":
+            return "Веб-разработка (VK)";
+        case "functional programming":
+            return "Функциональное программирование";
+        case "data analysis":
+            return "Анализ данных";
+        case "adv algorithm":
+            return "Продвинутые алгоритмы";
+        case "frontend":
+            return "Фронтенд";
+        case "type theory":
+            return "Теория типов";
+        case "english":
+            return "Английский язык";
+        case "number theory":
+            return "Теория чисел";
         default:
             return $string;
     }

@@ -53,7 +53,17 @@ function keyboard_choose_group()
                 "type" => "text",
                 "payload" => '{"button": "37"}',
                 "label" => "37"],
-                "color" => "default"]   //blue
+                "color" => "default"],   //blue
+            ["action" => [
+                "type" => "text",
+                "payload" => '{"button": "38"}',
+                "label" => "38"],
+                "color" => "default"],
+            ["action" => [
+                "type" => "text",
+                "payload" => '{"button": "39"}',
+                "label" => "39"],
+                "color" => "default"]
         ]]];
     return $keyboard;
 }
