@@ -51,18 +51,20 @@ function bot_sendMessage($user_id, $text, $payload)
             break;
     }
 
+    $group_next = ($GLOBALS['group_number'] == 0 || !isset($GLOBALS['group_number'])) ? $payload_group : $GLOBALS['group_number'];
+
     switch ($text) {
         case "Выбрать группу":
             $keyboard = keyboard_choose_group();
             break;
         case "Выбрать день":
-            $keyboard = keyboard_choose_day($payload_group);
+            $keyboard = keyboard_choose_day($group_next);
             break;
         case "Выбрать предмет":
-            $keyboard = keyboard_choose_subject($payload_group);
+            $keyboard = keyboard_choose_subject($group_next);
             break;
         default:
-            $keyboard = create_keyboard($payload_group);
+            $keyboard = create_keyboard($group_next);
             break;
     }
 
