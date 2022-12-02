@@ -33,38 +33,39 @@ function keyboard_choose_group()
 {
     $keyboard = [
         "one_time" => false,
-        "buttons" => [[
-            ["action" => [
+        "buttons" => [
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "34"}',
                 "label" => "34"],
-                "color" => "default"],  //green
-            ["action" => [
+                "color" => "default"]],  //green
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "35"}',
                 "label" => "35"],
-                "color" => "default"],  //purple
-            ["action" => [
+                "color" => "default"]],  //purple
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "36"}',
                 "label" => "36"],
-                "color" => "default"],  //dark blue
-            ["action" => [
+                "color" => "default"]],  //dark blue
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "37"}',
                 "label" => "37"],
-                "color" => "default"],   //blue
-            ["action" => [
+                "color" => "default"]],   //blue
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "38"}',
                 "label" => "38"],
-                "color" => "default"],
-            ["action" => [
+                "color" => "default"]],
+            [["action" => [
                 "type" => "text",
                 "payload" => '{"button": "39"}',
                 "label" => "39"],
-                "color" => "default"]
-        ]]];
+                "color" => "default"]]
+        ]
+    ];
     return $keyboard;
 }
 
