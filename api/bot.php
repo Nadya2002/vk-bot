@@ -9,6 +9,8 @@ function bot_sendMessage($user_id, $text, $payload)
 
     $payload_btn = $payload['button'];
     $payload_group = $payload['group'];
+    $payload_day = $payload['day'];
+    $payload_subject = $payload['subject'];
 
     switch ($payload_btn) {
         // chose group
@@ -30,7 +32,15 @@ function bot_sendMessage($user_id, $text, $payload)
         case '39':
             $GLOBALS['group_number'] = 39;
             break;
-        //choose day
+        case 'week':
+            $week = 'has';
+            break;
+        default :
+            $GLOBALS['group_number'] = $payload_group;
+            break;
+    }
+
+    switch ($payload_day){
         case 'mon':
             $day = 'Monday';
             break;
@@ -52,6 +62,12 @@ function bot_sendMessage($user_id, $text, $payload)
         case 'sun':
             $day = 'Sunday';
             break;
+        default :
+            $GLOBALS['group_number'] = $payload_group;
+            break;
+    }
+
+    switch ($payload_subject){
         case 'ms':
             $subject = 'math statistics';
             break;
@@ -132,6 +148,9 @@ function bot_sendMessage($user_id, $text, $payload)
     } else if (isset($subject)) {
         log_msg("have subject");
         $msg = get_lessons_by_group_and_subject($payload_group, $subject);
+    } else if (isset($week)) {
+        log_msg("have week");
+        $msg = get_lessons_by_group_and_week($payload_group);
     } else {
         $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
     }

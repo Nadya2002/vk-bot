@@ -33,6 +33,26 @@ function get_lessons_by_group_and_subject($group_n, $subject_n)
     }
 }
 
+function get_lessons_by_group_and_week($group_n)
+{
+    $database = new Database();
+    $db = $database->getConnection();
+    if (!isset($db)) {
+        return "not connect to db";
+    } else {
+        $result = "";
+        $items = new Lesson($db);
+        $week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        foreach ($week as $day) {
+            $stmt = $items->getLessonsByGroupAndDay($group_n, $day);
+            $itemCount = $stmt->rowCount();
+            $day_timetable =  read($itemCount, $stmt, "Нет пар. Отдыхай!");
+            $result = $result . "\n" . $day . ":" . "\n" . $day_timetable;
+        }
+        return $result;
+    }
+}
+
 function read($itemCount, $stmt, $error)
 {
     if ($itemCount > 0) {
@@ -63,6 +83,7 @@ function read($itemCount, $stmt, $error)
 
 function changeStructure($array)
 {
+
     $result = "";
 
     foreach ($array as $elem) {

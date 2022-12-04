@@ -25,7 +25,7 @@ class Lesson{
     }
 
     public function getLessonsByGroupAndDay($group, $day){
-        $sqlQuery = "SELECT * FROM " . $this->db_table . " WHERE `group` = :group_num AND `day` = :day";
+        $sqlQuery = "SELECT * FROM " . $this->db_table . " WHERE `group` = :group_num AND `day` = :day ORDER BY `time`";
         $stmt = $this->conn->prepare($sqlQuery);
         $stmt->execute(['group_num' => $group, 'day' => $day]);
 
@@ -33,7 +33,7 @@ class Lesson{
     }
 
     public function getLessonsByGroupAndSubject($group, $subject){
-        $sqlQuery = "SELECT * FROM " . $this->db_table . " WHERE `group` = :group_num AND `name` = :subject";
+        $sqlQuery = "SELECT * FROM " . $this->db_table . " WHERE `group` = :group_num AND `name` = :subject ORDER BY `day`,`time`";
         $stmt = $this->conn->prepare($sqlQuery);
         $stmt->execute(['group_num' => $group, 'subject' => $subject]);
 
