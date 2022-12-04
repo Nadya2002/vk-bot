@@ -136,7 +136,7 @@ function bot_sendMessage($user_id, $text, $payload)
             break;
     }
 
-    if (!isset($payload_group) || $payload_group == 0) {
+    if (!isset($group_next) || $group_next == 0) {
         $msg = "Привет, {$user->first_name}!" . "\n" . "Выбери свою группу сначала";
     } else {
         if (isset($day)) {
