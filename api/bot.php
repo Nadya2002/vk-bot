@@ -40,7 +40,7 @@ function bot_sendMessage($user_id, $text, $payload)
             break;
     }
 
-    switch ($payload_day){
+    switch ($payload_day) {
         case 'mon':
             $day = 'Monday';
             break;
@@ -64,7 +64,7 @@ function bot_sendMessage($user_id, $text, $payload)
             break;
     }
 
-    switch ($payload_subject){
+    switch ($payload_subject) {
         case 'ms':
             $subject = 'math statistics';
             break;
@@ -136,20 +136,19 @@ function bot_sendMessage($user_id, $text, $payload)
             break;
     }
 
-    if (isset($day)) {
-        log_msg("have day");
-        $msg = get_lessons_by_group_and_day($payload_group, $day);
-    } else if (isset($subject)) {
-        log_msg("have subject");
-        $msg = get_lessons_by_group_and_subject($payload_group, $subject);
-    } else if (isset($week)) {
-        log_msg("have week");
-        $msg = get_lessons_by_group_and_week($payload_group);
+    if (!isset($payload_group) || $payload_group == 0) {
+        $msg = "Привет, {$user->first_name}!" . "\n" . "Выбери свою группу сначала";
     } else {
-        //Привет, Надежда!34 hello group next = gr_btm = 34 end
-        $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " group next = " . $group_next . " gr_btm = " . $payload_btn . " end";
+        if (isset($day)) {
+            $msg = get_lessons_by_group_and_day($payload_group, $day);
+        } else if (isset($subject)) {
+            $msg = get_lessons_by_group_and_subject($payload_group, $subject);
+        } else if (isset($week)) {
+            $msg = get_lessons_by_group_and_week($payload_group);
+        } else {
+            $msg = "Привет, {$user->first_name}!" . "\n" . "Выбери свою группу и воспользуйся моими функциями: \nЯ могу показать расписание пар на день, на неделю или конкретного предмета";
+        }
     }
 
-//    $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd " . $msg_day . " aaaaaaa";
     vkApi_messagesSend($user_id, $msg, $keyboard);
 }

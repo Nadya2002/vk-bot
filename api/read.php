@@ -2,12 +2,14 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
+define('NOT_CONNECT', 'Извините, бот в данный момент не доступен');
+
 function get_lessons_by_group_and_day($group_n, $day_n)
 {
     $database = new Database();
     $db = $database->getConnection();
     if (!isset($db)) {
-        return "not connect to db";
+        return NOT_CONNECT;
     } else {
         $items = new Lesson($db);
         $stmt = $items->getLessonsByGroupAndDay($group_n, $day_n);
@@ -17,13 +19,12 @@ function get_lessons_by_group_and_day($group_n, $day_n)
     }
 }
 
-
 function get_lessons_by_group_and_subject($group_n, $subject_n)
 {
     $database = new Database();
     $db = $database->getConnection();
     if (!isset($db)) {
-        return "not connect to db";
+        return NOT_CONNECT;
     } else {
         $items = new Lesson($db);
         $stmt = $items->getLessonsByGroupAndSubject($group_n, $subject_n);
@@ -38,7 +39,7 @@ function get_lessons_by_group_and_week($group_n)
     $database = new Database();
     $db = $database->getConnection();
     if (!isset($db)) {
-        return "not connect to db";
+        return NOT_CONNECT;
     } else {
         $result = "";
         $items = new Lesson($db);
@@ -58,11 +59,9 @@ function read($itemCount, $stmt, $error)
     if ($itemCount > 0) {
         $lessonArr = array();
         $lessonArr["body"] = array();
-        $lessonArr["itemCount"] = $itemCount;
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
             $e = array(
-//                "id" => $id,
                 "day" => translate($day),
                 "time" => $time,
                 "name" => translate($name),
@@ -74,7 +73,6 @@ function read($itemCount, $stmt, $error)
         }
 
         $translateArr = changeStructure($lessonArr["body"]);
-//        return json_encode($lessonArr);
         return $translateArr;
     } else {
         return $error;
