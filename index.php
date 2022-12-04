@@ -6,9 +6,10 @@ define('CALLBACK_API_EVENT_MESSAGE_NEW', 'message_new');
 require_once 'util/config.php';
 require_once 'util/global.php';
 
+require_once 'bot/bot.php';
+require_once 'bot/keyboard.php';
+
 require_once 'api/vk_api.php';
-require_once 'api/bot.php';
-require_once 'api/keyboard.php';
 require_once 'api/read.php';
 
 require_once 'class/lesson.php';
@@ -18,8 +19,6 @@ require_once 'config/database.php';
 if (!isset($_REQUEST)) {
     return;
 }
-
-log_msg("start!!!");
 
 callback_handleEvent();
 
