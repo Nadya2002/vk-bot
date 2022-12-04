@@ -146,7 +146,7 @@ function bot_sendMessage($user_id, $text, $payload)
         } else if (isset($week)) {
             $msg = get_lessons_by_group_and_week($payload_group);
         } else {
-            $msg = "Привет, {$user->first_name}!" . "\n" . "Выбери свою группу и воспользуйся моими функциями: \nЯ могу показать расписание пар на день, на неделю или конкретного предмета";
+            $msg = "Привет, {$user->first_name}!" . "\n" . "Воспользуйся моими функциями: \nЯ могу показать расписание пар на день, на неделю или конкретного предмета";
         }
     }
 
