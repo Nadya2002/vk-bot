@@ -85,6 +85,21 @@ function bot_sendMessage($user_id, $text, $payload)
         case 'tn':
             $subject = 'number theory';
             break;
+        case 'android':
+            $subject = 'android';
+            break;
+        case 'os-adv':
+            $subject = 'os adv';
+            break;
+        case 'c++':
+            $subject = 'c++';
+            break;
+        case 'ios':
+            $subject = 'ios';
+            break;
+        case 'rust':
+            $subject = 'rust';
+            break;
         default :
             $GLOBALS['group_number'] = $payload_group;
             break;
@@ -118,7 +133,6 @@ function bot_sendMessage($user_id, $text, $payload)
         log_msg("have subject");
         $msg = get_lessons_by_group_and_subject($payload_group, $subject);
     } else {
-//        $msg_day = "не получилось";
         $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
     }
 

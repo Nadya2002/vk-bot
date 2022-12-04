@@ -117,6 +117,6 @@ function translate($string)
         case "number theory":
             return "Теория чисел";
         default:
-            return $string;
+            return ucfirst($string);
     }
 }
