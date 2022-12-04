@@ -152,7 +152,7 @@ function bot_sendMessage($user_id, $text, $payload)
         log_msg("have week");
         $msg = get_lessons_by_group_and_week($payload_group);
     } else {
-        $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd";
+        $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " group next = " . $group_next . " gr_btm = " . $payload_btn . " end";
     }
 
 //    $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " abcd " . $msg_day . " aaaaaaa";
