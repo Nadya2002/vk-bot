@@ -69,7 +69,7 @@ function bot_sendMessage($user_id, $text, $payload)
             $subject = 'math statistics';
             break;
         case 'mpp':
-            $subject = 'parallel programming"';
+            $subject = 'parallel programming';
             break;
         case 'da':
             $subject = 'data analysis';
