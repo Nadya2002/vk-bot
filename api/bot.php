@@ -120,33 +120,39 @@ function bot_sendMessage($user_id, $text, $payload)
     switch ($text) {
         case "Выбрать группу":
             $keyboard = keyboard_choose_group();
+            $msg = "Выбери свою группу";
             break;
         case "Выбрать день":
             $keyboard = keyboard_choose_day($group_next);
+            $msg = "Выбери нужный день";
             break;
         case "Выбрать предмет":
         case "Предыдущие предметы...":
             $keyboard = keyboard_choose_subject($group_next);
+            $msg = "Выбери нужный предмет";
             break;
         case "Еще предметы...":
             $keyboard = keyboard_choose_subject_next($group_next);
+            $msg = "Выбери нужный предмет";
             break;
         default:
             $keyboard = create_keyboard($group_next);
             break;
     }
 
-    if (!isset($group_next) || $group_next == 0) {
-        $msg = "Привет, {$user->first_name}!" . "\n" . "Выбери свою группу сначала";
-    } else {
-        if (isset($day)) {
-            $msg = get_lessons_by_group_and_day($payload_group, $day);
-        } else if (isset($subject)) {
-            $msg = get_lessons_by_group_and_subject($payload_group, $subject);
-        } else if (isset($week)) {
-            $msg = get_lessons_by_group_and_week($payload_group);
+    if (!isset($msg)) {
+        if (!isset($group_next) || $group_next == 0) {
+            $msg = "Привет, {$user->first_name}!" . "\n" . "Выбери свою группу сначала";
         } else {
-            $msg = "Привет, {$user->first_name}!" . "\n" . "Воспользуйся моими функциями: \nЯ могу показать расписание пар на день, на неделю или конкретного предмета";
+            if (isset($day)) {
+                $msg = get_lessons_by_group_and_day($payload_group, $day);
+            } else if (isset($subject)) {
+                $msg = get_lessons_by_group_and_subject($payload_group, $subject);
+            } else if (isset($week)) {
+                $msg = get_lessons_by_group_and_week($payload_group);
+            } else {
+                $msg = "Привет, {$user->first_name}!" . "\n" . "Воспользуйся моими функциями: \nЯ могу показать расписание пар на день, на неделю или конкретного предмета";
+            }
         }
     }
 
