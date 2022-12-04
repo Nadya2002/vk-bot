@@ -167,14 +167,54 @@ function keyboard_choose_subject($group)
                 "color" => "default"]],
             [["action" => [
                 "type" => "text",
-                "payload" => '{"button": "tt", "group": "' . $group . '"}',
-                "label" => "Теория типов"],
+                "payload" => '{"button": "more", "group": "' . $group . '"}',
+                "label" => "Еще предметы..."],
                 "color" => "default"]]
-//            [["action" => [
-//                "type" => "text",
-//                "payload" => '{"button": "tn", "group": "' . $group . '"}',
-//                "label" => "Теория чисел"],
-//                "color" => "default"]]
+        ]
+    ];
+    return $keyboard;
+}
+
+function keyboard_choose_subject_next($group)
+{
+    $keyboard = [
+        "one_time" => false,
+        "buttons" => [
+            [["action" => [
+                "type" => "text",
+                "payload" => '{"button": "tn", "group": "' . $group . '"}',
+                "label" => "Теория чисел"],
+                "color" => "default"]],
+            [["action" => [
+                "type" => "text",
+                "payload" => '{"button": "android", "group": "' . $group . '"}',
+                "label" => "Андроид"],
+                "color" => "default"]],
+            [["action" => [
+                "type" => "text",
+                "payload" => '{"button": "os-adv", "group": "' . $group . '"}',
+                "label" => "Оси - advanced"],
+                "color" => "default"]],
+            [["action" => [
+                "type" => "text",
+                "payload" => '{"button": "c++", "group": "' . $group . '"}',
+                "label" => "Advanced C++"],
+                "color" => "default"]],
+            [["action" => [
+                "type" => "text",
+                "payload" => '{"button": "ios", "group": "' . $group . '"}',
+                "label" => "IOS (VK)"],
+                "color" => "default"]],
+            [["action" => [
+                "type" => "text",
+                "payload" => '{"button": "rust", "group": "' . $group . '"}',
+                "label" => "Rust"],
+                "color" => "default"]],
+            [["action" => [
+                "type" => "text",
+                "payload" => '{"button": "back", "group": "' . $group . '"}',
+                "label" => "Предыдущие предметы..."],
+                "color" => "default"]],
         ]
     ];
     return $keyboard;

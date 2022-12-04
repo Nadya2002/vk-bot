@@ -100,7 +100,11 @@ function bot_sendMessage($user_id, $text, $payload)
             $keyboard = keyboard_choose_day($group_next);
             break;
         case "Выбрать предмет":
+        case "Предыдущие предметы...":
             $keyboard = keyboard_choose_subject($group_next);
+            break;
+        case "Еще предметы...":
+            $keyboard = keyboard_choose_subject_next($group_next);
             break;
         default:
             $keyboard = create_keyboard($group_next);
