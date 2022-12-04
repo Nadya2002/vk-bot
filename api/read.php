@@ -47,7 +47,7 @@ function get_lessons_by_group_and_week($group_n)
             $stmt = $items->getLessonsByGroupAndDay($group_n, $day);
             $itemCount = $stmt->rowCount();
             $day_timetable =  read($itemCount, $stmt, "Нет пар. Отдыхай!");
-            $result = $result . "\n" . $day . ":" . "\n" . $day_timetable;
+            $result = $result . "\n" . translate($day) . ":" . "\n" . $day_timetable;
         }
         return $result;
     }
