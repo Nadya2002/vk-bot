@@ -62,9 +62,6 @@ function bot_sendMessage($user_id, $text, $payload)
         case 'sun':
             $day = 'Sunday';
             break;
-        default :
-            $GLOBALS['group_number'] = $payload_group;
-            break;
     }
 
     switch ($payload_subject){
@@ -116,9 +113,6 @@ function bot_sendMessage($user_id, $text, $payload)
         case 'rust':
             $subject = 'rust';
             break;
-        default :
-            $GLOBALS['group_number'] = $payload_group;
-            break;
     }
 
     $group_next = ($GLOBALS['group_number'] == 0 || !isset($GLOBALS['group_number'])) ? $payload_group : $GLOBALS['group_number'];
@@ -152,6 +146,7 @@ function bot_sendMessage($user_id, $text, $payload)
         log_msg("have week");
         $msg = get_lessons_by_group_and_week($payload_group);
     } else {
+        //Привет, Надежда!34 hello group next = gr_btm = 34 end
         $msg = "Привет, {$user->first_name}!" . $text . " hello " . $GLOBALS['group_number'] . " group next = " . $group_next . " gr_btm = " . $payload_btn . " end";
     }
 
