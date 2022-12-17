@@ -13,8 +13,7 @@ require_once 'api/vk_api.php';
 require_once 'api/read.php';
 
 require_once 'class/lesson.php';
-
-require_once 'config/database.php';
+require_once 'class/database.php';
 
 if (!isset($_REQUEST)) {
     return;
